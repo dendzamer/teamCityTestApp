@@ -22,15 +22,22 @@ namespace teamCityTest
         public string Database { get; set; } = string.Empty;
     }
 
-    public class MongoDBOptionsSetup(IConfiguration configuration) : IConfigureOptions<MongoDbOptions>
+    public class MongoDBOptionsSetup : IConfigureOptions<MongoDbOptions>
     {
+        private readonly IConfiguration _configuration;
+
+        public MongoDBOptionsSetup(IConfiguration configuration)
+        {
+            _configuration = configuration;
+        }
+
         private const string CONNECTION_STRING = "MongoDbOptions:ConnectionString";
         private const string DATABASE_NAME = "MongoDbOptions:Database";
 
         public void Configure(MongoDbOptions options)
         {
-            options.ConnectionString = configuration[CONNECTION_STRING] ?? throw new ArgumentNullException(CONNECTION_STRING);
-            options.Database = configuration[DATABASE_NAME] ?? throw new ArgumentNullException(DATABASE_NAME);
+            options.ConnectionString = _configuration[CONNECTION_STRING] ?? throw new ArgumentNullException(CONNECTION_STRING);
+            options.Database = _configuration[DATABASE_NAME] ?? throw new ArgumentNullException(DATABASE_NAME);
         }
     }
 }
