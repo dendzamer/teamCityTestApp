@@ -10,6 +10,7 @@ public class WidgetsController : ControllerBase
     private readonly IMongoCollection<Widget> widgets;
     //some comment
     //some other new change
+    // new new trigger
     public WidgetsController(WidgetContext context)
     {
         widgets = context.WidgetSet;
