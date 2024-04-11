@@ -9,6 +9,7 @@ public class WidgetsController : ControllerBase
 {
     private readonly IMongoCollection<Widget> widgets;
     //some comment
+    //some other comment
     public WidgetsController(WidgetContext context)
     {
         widgets = context.WidgetSet;
