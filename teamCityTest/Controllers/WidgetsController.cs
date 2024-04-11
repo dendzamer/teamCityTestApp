@@ -8,7 +8,7 @@ namespace teamCityTest.Controllers;
 public class WidgetsController : ControllerBase
 {
     private readonly IMongoCollection<Widget> widgets;
-
+    //some comment
     public WidgetsController(WidgetContext context)
     {
         widgets = context.WidgetSet;
