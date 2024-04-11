@@ -2,7 +2,7 @@ FROM reapregistry.azurecr.io/dotnet/linux/sdk:8.0 AS build
 WORKDIR /src
 
 ARG BUILD_CONFIGURATION=Release
-COPY ["./teamCityTest/teamCityTest.csproj", "teamCityTest/"]
+COPY ["teamCityTest.csproj", "teamCityTest/"]
 RUN dotnet restore "teamCityTest/teamCityTest.csproj"
 COPY . .
 WORKDIR "/src/teamCityTest"
