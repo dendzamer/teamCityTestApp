@@ -11,6 +11,7 @@ public class WidgetsController : ControllerBase
     //some comment
     //some other new change
     // new new trigger
+    // trigger
     public WidgetsController(WidgetContext context)
     {
         widgets = context.WidgetSet;
